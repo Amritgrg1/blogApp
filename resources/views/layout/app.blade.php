@@ -8,6 +8,7 @@
 </head>
 <body>
 @yield('content')
+<div class="mx-auto" style="width:500px">
 <nav class="navbar navbar-expand-lg bg-light">
   <div class="container-fluid">
     <a class="navbar-brand" href="{{route('dashboard')}}">Article App</a>
@@ -16,22 +17,26 @@
     </button>
     <div class="collapse navbar-collapse" id="navbarNavDropdown">
       <ul class="navbar-nav">
+        @auth
         <li class="nav-item">
-          <a class="nav-link active" aria-current="page" href="#">Home</a>
+          <a class="nav-link active" aria-current="page" href="{{route('login')}}">{{auth()->user()->name}}</a>
         </li>
+        @endauth
+        @guest
         <li class="nav-item">
           <a class="nav-link" href="{{route('register')}}">register</a>
         </li>
         <li class="nav-item">
           <a class="nav-link" href="{{route('login')}}">login</a>
         </li>
+        @endguest
       </ul>
     </div>
   </div>
 </nav>
 
 @yield('form')
-
+</div>
 
 
 </body>
