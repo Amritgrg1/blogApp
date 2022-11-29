@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
+use App\Models\Post;
 
 class HomeController extends Controller
 {
@@ -16,7 +17,9 @@ class HomeController extends Controller
 
     public function dashboard()
     {
-         return view('dashboard');
+          $posts = Post::where('user_id', '=', auth()->user()->id)->get();
+          // dd($posts);
+         return view('dashboard', compact('posts'));
 
     }
 

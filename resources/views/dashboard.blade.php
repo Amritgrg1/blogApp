@@ -1,8 +1,21 @@
 @extends('layout.app')
 
 @section('form')
-<h1 class="mt-3">Welcome To Dashboard</h1>
-<a class="nav-link" href="{{route('logout')}}"><button class="btn btn-danger">logout</button></a>
+<div class="container">
+    <table class="table table-stripped">
+        <tr>
+            <th>Article Title</th>
+            <th>Created By</th>
+        </tr>
+        @foreach($posts as $post)
+
+        <tr>
+            <td>{{$post->title}}</td>
+            <td>{{$post->user->name}}</td>
+        </tr>
+        @endforeach
+    </table>
+</div>
 
 @endsection
 

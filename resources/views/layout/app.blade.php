@@ -18,9 +18,10 @@
     <div class="collapse navbar-collapse" id="navbarNavDropdown">
       <ul class="navbar-nav">
         @auth
-        <li class="nav-item">
+        <div class="d-flex">
           <a class="nav-link active" aria-current="page" href="{{route('login')}}">{{auth()->user()->name}}</a>
-        </li>
+          <a class="nav-link" href="{{route('logout')}}"><button class="btn btn-danger">logout</button></a>
+        </div>
         @endauth
         @guest
         <li class="nav-item">
